@@ -84,10 +84,15 @@ app.put("/api/v1/restaurants/:id", async(req,res)=>{
 // delete restaurant
 
 app.delete("/api/v1/restaurants/:id", async(req,res)=>{
-   
-    res.status(204).json({
+   try {
+       const results = await db.query("DELETE FROM restaurants where id = $1", [req.params.id])
+       res.status(204).json({
         status:"success"
     })
+   } catch (err) {
+       console.log(err)
+   }
+    
 })
 
 
