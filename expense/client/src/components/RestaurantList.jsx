@@ -1,13 +1,16 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useContext} from 'react';
 import RestaurantFinder from '../apis/RestaurantFinder';
+import { RestaurantContext } from '../context/RestaurantContext';
 
-const RestaurantList = () => {
+const RestaurantList = (props) => {
+    // need to store our data
+    const {restaurants, setRestaurants}= useContext(RestaurantContext)
 
     useEffect(()=>{
         const fetchData = async () =>{
             try {
                 const response = await RestaurantFinder.get("/")
-                console.log(response)
+                setRestaurants(response.data.data.restaurants);
            } catch (err) {}
         };
         fetchData();
@@ -29,14 +32,24 @@ const RestaurantList = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
+                    {restaurants.map(restaurant =>{
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    })}
+                    {/* <tr>
                         <td>Jollibees</td>
                         <td>Las Vegas</td>
                         <td>$</td>
                         <td>Ratings</td>
                         <td><button className="btn btn-warning">Update</button></td>
                         <td><button className="btn btn-danger">Delete</button></td>
-                    </tr>
+                    </tr> */}
                 </tbody>
             </table>
             
