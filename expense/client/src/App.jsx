@@ -5,7 +5,7 @@ import RestaurantPage from './routes/RestaurantPage';
 import Update from './routes/Update';
 
 const App = () => {
-    return <div>
+    return <div className="container">
         <Router>
             <Switch>
                 <Route exact path="/" component={Home}/>
