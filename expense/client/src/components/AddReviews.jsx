@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
-import {  useParams } from 'react-router-dom'
+import {  useParams, useHistory, useLocation } from 'react-router-dom'
 import RestaurantFinder from '../apis/RestaurantFinder'
 
 const AddReviews = () => {
-    
+    const location = useLocation();
+    const history = useHistory();
+    console.log(location)
     const {id} = useParams();
     console.log(id);
 
@@ -14,12 +16,16 @@ const AddReviews = () => {
 
 
     const handleSubmitReview = async(e) =>{
+       try {
         e.preventDefault()
         const response = await RestaurantFinder.post(`/${id}/addReview`, {
             name,
             review: reviewText,
             rating
         })
+        history.push("/");
+        history.push(location.pathname);
+       } catch (error) {}
     }
     return (
         <div className="mb-2">
