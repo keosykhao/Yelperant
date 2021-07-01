@@ -23,6 +23,7 @@ const AddReviews = () => {
             review: reviewText,
             rating
         })
+        // this sets it so when we add a review it updates and stays on this page
         history.push("/");
         history.push(location.pathname);
        } catch (error) {}
