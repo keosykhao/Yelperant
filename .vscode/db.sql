@@ -6,4 +6,4 @@
     rating INT check (rating >=1 and rating <=5)
     );
 
-    insert into reviews (restaurant_id, name, review, rating) values (19, 'amia', 'the best food', 5);
+    insert into reviews (restaurant_id, name, review, rating) values (1, 'delena', 'food was meh', 2);
