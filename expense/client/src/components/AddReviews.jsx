@@ -3,10 +3,10 @@ import {  useParams, useHistory, useLocation } from 'react-router-dom'
 import RestaurantFinder from '../apis/RestaurantFinder'
 
 const AddReviews = () => {
-    const location = useLocation();
-    const history = useHistory();
-    console.log(location)
     const {id} = useParams();
+    const location = useLocation();
+    console.log(location)
+    const history = useHistory();
     console.log(id);
 
 

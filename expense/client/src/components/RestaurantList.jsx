@@ -39,6 +39,9 @@ const RestaurantList = (props) => {
         history.push(`/restaurants/${id}`);
     }
     const renderRating = (restaurant) =>{
+        if(!restaurant.count){
+            return <span className="text-warning">O Reviews</span>
+        }
          return (
              <>
          <StarRating rating = {restaurant.id}/>
